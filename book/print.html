@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Your Book Title</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <header class="header">
+    <div class="header-content">
+      <div class="logo">
+        <img src="logo.svg" alt="Logo" width="32" height="32">
+      </div>
+      <h1 id="your-book-title" class="title"><a class="header" href="#your-book-title">Your Book Title</a></h1>
+    </div>
+  </header>
+  <div class="container">
+    <div class="sidebar">
+          </div>
+    <div class="content">
+      <h1 id="just-docs-theme-for-mdbook"><a class="header" href="#just-docs-theme-for-mdbook">Just Docs Theme for mdBook</a></h1>
+<p>Welcome to the Just Docs theme for mdBook, inspired by the popular &quot;Just the Docs&quot; Jekyll theme. This theme provides a clean, responsive documentation site with features designed to make documentation easy to use and navigate.</p>
+<h2 id="features"><a class="header" href="#features">Features</a></h2>
+<p>This theme includes several features that make it ideal for documentation:</p>
+<ul>
+<li><strong>Responsive design</strong> - Looks great on both desktop and mobile devices</li>
+<li><strong>Collapsible navigation</strong> - Organize your documentation with nested sections</li>
+<li><strong>Dark mode support</strong> - Toggle between light and dark mode</li>
+<li><strong>Search functionality</strong> - Find content quickly with the built-in search</li>
+<li><strong>Clean typography</strong> - Easy to read with well-designed typography</li>
+</ul>
+<h2 id="getting-started"><a class="header" href="#getting-started">Getting Started</a></h2>
+<p>To use this theme in your own mdBook project:</p>
+<ol>
+<li>Copy the <code>theme</code> directory to your project</li>
+<li>Add the following to your <code>book.toml</code>:</li>
+</ol>
+<pre><code class="language-toml">[book]
+title = &quot;Your Book Title&quot;
+authors = [&quot;Your Name&quot;]
+
+[output.html]
+theme = &quot;theme&quot;
+</code></pre>
+<h2 id="code-examples"><a class="header" href="#code-examples">Code Examples</a></h2>
+<p>Here's an example of syntax highlighting for code blocks:</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    println!(&quot;Hello, Just Docs Theme!&quot;);
+    
+    // A more complex example
+    let numbers = vec![1, 2, 3, 4, 5];
+    let doubled: Vec&lt;i32&gt; = numbers.iter()
+        .map(|x| x * 2)
+        .collect();
+    
+    println!(&quot;Doubled numbers: {:?}&quot;, doubled);
+}</code></pre></pre>
+<h2 id="tables"><a class="header" href="#tables">Tables</a></h2>
+<p>Tables are styled cleanly for better readability:</p>
+<div class="table-wrapper"><table><thead><tr><th>Feature</th><th>Description</th><th>Supported</th></tr></thead><tbody>
+<tr><td>Dark Mode</td><td>Toggle between light and dark themes</td><td>✓</td></tr>
+<tr><td>Search</td><td>Find content in the documentation</td><td>✓</td></tr>
+<tr><td>Responsive</td><td>Works on mobile and desktop</td><td>✓</td></tr>
+<tr><td>Nested Nav</td><td>Organize with collapsible sections</td><td>✓</td></tr>
+</tbody></table>
+</div>
+<h2 id="blockquotes-and-callouts"><a class="header" href="#blockquotes-and-callouts">Blockquotes and Callouts</a></h2>
+<blockquote>
+<p><strong>Note:</strong> This theme includes styling for blockquotes to make important information stand out in your documentation.</p>
+</blockquote>
+<h2 id="next-steps"><a class="header" href="#next-steps">Next Steps</a></h2>
+<p>Continue exploring the theme by checking out <a href="chapter_1.html">Chapter 1</a> for more examples.</p>
+<div style="break-before: page; page-break-before: always;"></div><h1 id="chapter-1"><a class="header" href="#chapter-1">Chapter 1</a></h1>
+<p>This is a sample chapter demonstrating the custom theme.</p>
+<h2 id="section-11"><a class="header" href="#section-11">Section 1.1</a></h2>
+<p>Here's some content in the first section.</p>
+<pre><pre class="playground"><code class="language-rust">fn main() {
+    println!(&quot;Hello, world!&quot;);
+}</code></pre></pre>
+<h2 id="section-12"><a class="header" href="#section-12">Section 1.2</a></h2>
+<p>More content in the second section.</p>
+
+    </div>
+  </div>
+  <script src="theme.js"></script>
+</body>
+</html>

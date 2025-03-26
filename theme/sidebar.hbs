@@ -1,0 +1,26 @@
+<div class="sidebar-header">
+  <input type="text" id="search-input" placeholder="Search..." aria-label="Search">
+</div>
+<nav class="sidebar-nav">
+  <ul class="nav-list">
+    {{#each toc}}
+      <li class="nav-item">
+        {{#if children}}
+          <a href="{{path_to_root}}{{url}}" class="nav-link{% if active %} active{% endif %}">{{title}}</a>
+          <button class="toggle-btn" aria-label="Toggle child pages">
+            <span class="icon">▾</span>
+          </button>
+          <ul class="nav-list-child">
+            {{#each children}}
+              <li class="nav-item">
+                <a href="{{path_to_root}}{{url}}" class="nav-link{% if active %} active{% endif %}">{{title}}</a>
+              </li>
+            {{/each}}
+          </ul>
+        {{else}}
+          <a href="{{path_to_root}}{{url}}" class="nav-link{% if active %} active{% endif %}">{{title}}</a>
+        {{/if}}
+      </li>
+    {{/each}}
+  </ul>
+</nav>

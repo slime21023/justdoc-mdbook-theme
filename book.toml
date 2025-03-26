@@ -1,0 +1,6 @@
+[book]
+title = "Your Book Title"
+authors = ["Your Name"]
+
+[output.html]
+theme = "theme"
