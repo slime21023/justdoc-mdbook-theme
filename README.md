@@ -1,1 +1,1 @@
-"# justdoc-mdbook-theme" 
+# justdoc-mdbook-theme 
