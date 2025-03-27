@@ -5,17 +5,63 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>{{title}}</title>
   <link rel="stylesheet" href="{{path_to_root}}style.css">
+  <meta name="description" content="{{description}}">
+  {{#if favicon}}
+  <link rel="icon" href="{{path_to_root}}{{favicon}}">
+  {{/if}}
+  {{#if print_enable}}
+  <link rel="stylesheet" media="print" href="{{path_to_root}}print.css">
+  {{/if}}
 </head>
 <body>
   {{> header}}
   <div class="container">
-    <div class="sidebar">
+    <div class="sidebar" id="sidebar">
       {{> sidebar}}
     </div>
-    <div class="content">
-      {{{content}}}
+    <div class="main-content">
+      <div class="content" id="content">
+        <!-- Page header with title -->
+        <div class="page-header">
+          <h1 class="page-title">{{chapter_title}}</h1>
+        </div>
+
+        <!-- Page content -->
+        <div class="page-content">
+          {{{content}}}
+        </div>
+
+        <!-- Page navigation -->
+        <div class="page-navigation">
+          {{#if previous}}
+          <a class="prev-page" href="{{path_to_root}}{{previous.path}}">
+            <span class="nav-direction">Previous</span>
+            <span class="nav-title">{{previous.title}}</span>
+          </a>
+          {{/if}}
+          {{#if next}}
+          <a class="next-page" href="{{path_to_root}}{{next.path}}">
+            <span class="nav-direction">Next</span>
+            <span class="nav-title">{{next.title}}</span>
+          </a>
+          {{/if}}
+        </div>
+      </div>
+
+      <!-- Auto-generated table of contents -->
+      <div class="toc" id="toc">
+        <div class="toc-header">
+          <h2 class="toc-title">On this page</h2>
+        </div>
+        <div id="page-toc-container"></div>
+      </div>
     </div>
   </div>
+  
+  <!-- Scripts -->
   <script src="{{path_to_root}}theme.js"></script>
+  {{#if mathjax_support}}
+  <script async type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+  {{/if}}
 </body>
 </html>

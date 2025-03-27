@@ -1,26 +1,56 @@
 <div class="sidebar-header">
-  <input type="text" id="search-input" placeholder="Search..." aria-label="Search">
+  <div class="search-container">
+    <input type="text" id="search-input" placeholder="Search..." aria-label="Search">
+    <div id="search-results" class="search-results"></div>
+  </div>
 </div>
+
 <nav class="sidebar-nav">
   <ul class="nav-list">
     {{#each toc}}
       <li class="nav-item">
         {{#if children}}
-          <a href="{{path_to_root}}{{url}}" class="nav-link{% if active %} active{% endif %}">{{title}}</a>
-          <button class="toggle-btn" aria-label="Toggle child pages">
-            <span class="icon">▾</span>
-          </button>
-          <ul class="nav-list-child">
+          <div class="nav-item-header">
+            <a href="{{path_to_root}}{{url}}" class="nav-link{{#if active}} active{{/if}}">{{title}}</a>
+            <button class="toggle-btn" aria-label="Toggle child pages" data-expanded="{{#if active}}true{{else}}false{{/if}}">
+              <span class="toggle-icon"></span>
+            </button>
+          </div>
+          <ul class="nav-list-child" {{#unless active}}style="display: none;"{{/unless}}>
             {{#each children}}
               <li class="nav-item">
-                <a href="{{path_to_root}}{{url}}" class="nav-link{% if active %} active{% endif %}">{{title}}</a>
+                {{#if children}}
+                  <div class="nav-item-header">
+                    <a href="{{path_to_root}}{{url}}" class="nav-link{{#if active}} active{{/if}}">{{title}}</a>
+                    <button class="toggle-btn" aria-label="Toggle child pages" data-expanded="{{#if active}}true{{else}}false{{/if}}">
+                      <span class="toggle-icon"></span>
+                    </button>
+                  </div>
+                  <ul class="nav-list-child" {{#unless active}}style="display: none;"{{/unless}}>
+                    {{#each children}}
+                      <li class="nav-item">
+                        <a href="{{path_to_root}}{{url}}" class="nav-link{{#if active}} active{{/if}}">{{title}}</a>
+                      </li>
+                    {{/each}}
+                  </ul>
+                {{else}}
+                  <a href="{{path_to_root}}{{url}}" class="nav-link{{#if active}} active{{/if}}">{{title}}</a>
+                {{/if}}
               </li>
             {{/each}}
           </ul>
         {{else}}
-          <a href="{{path_to_root}}{{url}}" class="nav-link{% if active %} active{% endif %}">{{title}}</a>
+          <a href="{{path_to_root}}{{url}}" class="nav-link{{#if active}} active{{/if}}">{{title}}</a>
         {{/if}}
       </li>
     {{/each}}
   </ul>
 </nav>
+
+<div class="sidebar-footer">
+  <div class="sidebar-footer-content">
+    <div class="version-info">
+      {{#if version}}Version: {{version}}{{/if}}
+    </div>
+  </div>
+</div>

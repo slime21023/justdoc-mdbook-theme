@@ -4,3 +4,5 @@ authors = ["Your Name"]
 
 [output.html]
 theme = "theme"
+default-theme = "light"
+preferred-dark-theme = "dark"
